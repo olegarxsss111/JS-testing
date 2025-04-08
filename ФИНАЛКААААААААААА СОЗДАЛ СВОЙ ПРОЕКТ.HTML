@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAZZYX REDIRECT</title>
+    <style>
+    @font-face {
+        font-family: 'Doctor Glitch';
+        src: url('fonts/Doctor Glitch.otf') format('opentype');
+        unicode-range: U+0020-007E, U+0100-017F, U+0370-03FF, U+13000-1342F;
+    }
+
+    body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: url('Background/e1699c982396398139e4fc8c010c90f8.jpg') center/cover no-repeat;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #made-by {
+        font-family: 'Doctor Glitch', sans-serif;
+        font-size: 3em;
+        color: #636363;
+        margin-bottom: 20px;
+        transform: rotate(0deg) translate(0,0);
+        transition: transform 0.2s ease;
+        position: fixed;
+        top: 20px;
+        text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .discord-container {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .discord-icon {
+        width: 50px;
+        height: 50px;
+        background-image: url('https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/107626_83121/Untitled%20design%20%283%29_1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+        filter: brightness(0.8) grayscale(100%) contrast(150%);
+    }
+
+    .discord-text {
+        font-family: monospace;
+        margin-left: 15px;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        position: relative;
+        background: linear-gradient(
+            90deg,
+            #ff7d33, 
+            #f2742a,
+            #e56b1f,
+            #d86215,
+            #cc4c00,  
+            #b54300,
+            #a3410d,  
+            #8f3a12,
+            #7a4a1a,
+            #665544,  
+            #5a5a5a, 
+            #4d4d4d,
+            #404040,
+            #333333, 
+            #262626, 
+            #1a1a1a,
+            #0d0d0d,
+            #262626,
+            #404040,
+            #5a5a5a,
+            #7a4a1a,
+            #a3410d,
+            #cc4c00,
+            #e56b1f,
+            #ff7d33
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 800% 100%;
+        animation: orangeFlow 12s linear infinite;
+    }
+
+    .avatar-container {
+        position: fixed;
+        left: 20px;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-image: url('https://64.media.tumblr.com/820bdab7696144772cd38f7c0eca4057/da846a37ef9a86f3-50/s500x750/07f9338c1d82678dfd81b1b784b0b25bc01aacdb.jpg');
+        background-size: cover;
+        transition: all 0.3s ease;
+        filter: brightness(0.9) contrast(110%);
+    }
+
+    .avatar-nickname {
+        margin-left: 15px;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease;
+        white-space: pre;
+        font-size: 1.2em;
+        background: linear-gradient(
+            90deg,
+            #ff7d33,
+            #f2742a,
+            #e56b1f,
+            #d86215,
+            #cc4c00,
+            #b54300,
+            #a3410d,
+            #8f3a12,
+            #7a4a1a,
+            #665544,
+            #5a5a5a,
+            #4d4d4d,
+            #404040,
+            #333333,
+            #262626,
+            #1a1a1a,
+            #0d0d0d,
+            #262626,
+            #404040,
+            #5a5a5a,
+            #7a4a1a,
+            #a3410d,
+            #cc4c00,
+            #e56b1f,
+            #ff7d33
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 800% 100%;
+        animation: orangeFlow 12s linear infinite;
+        font-family: 'Doctor Glitch', 'Segoe UI Symbol', sans-serif;
+    }
+
+    .discord-container:hover .discord-icon,
+    .avatar-container:hover .avatar {
+        transform: scale(1.15);
+        filter: brightness(1.1);
+    }
+
+    .discord-container:hover .discord-text,
+    .avatar-container:hover .avatar-nickname {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #4a4a4a;
+        color: #e6e6e6;
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+        background-color: #5e5e5e;
+        transform: translateY(-2px);
+    }
+
+    button::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(
+            90deg,
+            #ff7d33,
+            #f2742a,
+            #e56b1f,
+            #d86215,
+            #cc4c00,
+            #b54300,
+            #a3410d,
+            #8f3a12,
+            #7a4a1a,
+            #665544,
+            #5a5a5a,
+            #4d4d4d,
+            #404040,
+            #333333,
+            #262626,
+            #1a1a1a,
+            #0d0d0d,
+            #262626,
+            #404040,
+            #5a5a5a,
+            #7a4a1a,
+            #a3410d,
+            #cc4c00,
+            #e56b1f,
+            #ff7d33
+        );
+        background-size: 800% 100%;
+        transition: width 0.4s ease-out, 
+                   left 0.4s ease-out,
+                   opacity 0.3s ease;
+        opacity: 0;
+        animation: orangeFlow 12s linear infinite;
+    }
+
+    button:hover::after {
+        width: 100%;
+        left: 0;
+        opacity: 1;
+    }
+
+    @keyframes orangeFlow {
+        0% { background-position: 0% center; }
+        100% { background-position: 800% center; }
+    }
+    </style>
+</head>
+<body>
+    <div id="made-by">MADE BY FLAZZY</div>
+    
+    <div class="discord-container">
+        <div class="discord-icon"></div>
+        <div class="discord-text">@xxdeadforflazzyxx</div>
+    </div>
+
+    <div class="avatar-container">
+        <div class="avatar"></div>
+        <div class="avatar-nickname">[&#32;&#950;&#32;]&#32;𓆩𝙵𝚕𝚊𝚉𝚉𝚢𝚇𓆪</div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const screenX = e.screenX / screen.width - 0.5;
+            const screenY = e.screenY / screen.height - 0.5;
+            
+            const madeBy = document.getElementById('made-by');
+            madeBy.style.transform = `
+                rotateX(${screenY * 20}deg)
+                rotateY(${screenX * 20}deg)
+            `;
+        });
+
+        function openInNewTab(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+
+    <button onclick="openInNewTab('https://osu.ppy.sh/users/23350177')">Osu!</button>
+    <button onclick="openInNewTab('https://open.spotify.com/')">Spotify</button>
+    <button onclick="openInNewTab('https://www.youtube.com/')">YouTube</button>
+    <button onclick="openInNewTab('https://www.roblox.com/home')">Roblox</button>
+    <button onclick="openInNewTab('https://mail.google.com/mail/u/0/#inbox')">Gmail</button>
+    <button onclick="openInNewTab('https://discord.com/channels/@me')">Discord</button>
+</body>
+</html>
